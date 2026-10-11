@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "spindoctor-qwerty": {
+      "type": "stdio",
+      "command": "python3",
+      "args": [
+        "-c",
+        "import glob, json, os, runpy, sys\ndef _find():\n    r = os.environ.get(\"SPINDOCTOR_QWERTY_ROOT\")\n    if r: return [r]\n    home = os.path.join(os.path.expanduser(\"~\"), \".factory\", \"plugins\")\n    c = []\n    for f in glob.glob(os.path.join(home, \"installed_plugins\", \"*.json\")):\n        try: d = json.load(open(f, encoding=\"utf-8\"))\n        except Exception: continue\n        e = d.get(\"entry\") or {}\n        if str(d.get(\"pluginId\", \"\")).split(\"@\")[0] == \"spindoctor-qwerty\" and e.get(\"installPath\"): c.append((str(e.get(\"lastUpdated\", \"\")), e[\"installPath\"]))\n    c = [p for _, p in sorted(c, reverse=True)]\n    g = glob.glob(os.path.join(home, \"cache\", \"*\", \"spindoctor-qwerty-*\", \"*\"))\n    return c + sorted(g, key=os.path.getmtime, reverse=True)\nfor _r in _find():\n    _s = os.path.join(_r, \"skills\", \"spindoctor-qwerty\", \"scripts\", \"spindoctor_mcp.py\")\n    if os.path.isfile(_s):\n        sys.argv = [_s]; runpy.run_path(_s, run_name=\"__main__\"); break\nelse:\n    sys.exit(\"spindoctor-qwerty: plugin folder not found; install it with droid plugin install, or set SPINDOCTOR_QWERTY_ROOT to the plugin folder\")"
+      ],
+      "env": {
+        "PYTHONUTF8": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      }
+    }
+  }
+}
