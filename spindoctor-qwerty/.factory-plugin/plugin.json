@@ -1,0 +1,23 @@
+{
+  "name": "spindoctor-qwerty",
+  "description": "SpinDoctor 3.1.2 quantum-circuit SIMULATOR for Factory Droid: q.* scripts (1-298 logical qubits), the 241 presets, q.folder, theory testing from files or the chat, TXT/PDF/JSON/CSV reports, via a bundled standard-library-only Python MCP server. Classical FP64 simulation, not a quantum computer.",
+  "version": "1.1.0",
+  "author": {
+    "name": "RUSSELL PHILIP SMITHSON",
+    "email": "russellsmithson77@outlook.com"
+  },
+  "homepage": "https://github.com/LKVexa/spindoctor-qwerty-factory-droid",
+  "repository": "https://github.com/LKVexa/spindoctor-qwerty-factory-droid",
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "quantum",
+    "quantum-circuit",
+    "simulator",
+    "spindoctor",
+    "qubits",
+    "presets",
+    "mcp",
+    "factory-droid",
+    "theory-testing"
+  ]
+}
